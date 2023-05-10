@@ -1,0 +1,12 @@
+-- 회원 테이블
+create table member(
+    id varchar2(50) primary key,
+    pw varchar2(100) not null,
+    name varchar2(30) not null,
+    email varchar2(100),
+    post varchar2(30),
+    addr1 varchar2(100),
+    addr2 varchar2(100),
+    tel varchar2(30),
+    adminck number(1) default 0 not null
+);

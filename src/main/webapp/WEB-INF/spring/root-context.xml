@@ -47,4 +47,7 @@
 	</bean>
 	
 	<mybatis-spring:scan base-package="com.tam.mapper"/>
+	
+	<context:component-scan base-package="com.tam.model" />
+	<context:component-scan base-package="com.tam.service" />
 </beans>

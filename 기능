@@ -44,6 +44,7 @@
 관리자
 	- 상품
 	brance: admin
+	(AdminController)
 		- 목록 조회
 		- 상세 조회
 		- 등록

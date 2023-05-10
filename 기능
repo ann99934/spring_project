@@ -52,6 +52,7 @@
 	
 	- 회원
 	branch: user
+	(AdminController)
 		- 목록 조회
 	
 	- 배송
@@ -73,6 +74,7 @@
 	
 	- 공지사항
 	branch: notice
+	(NoticeController)
 		- 조회
 		- 등록
 		- 수정

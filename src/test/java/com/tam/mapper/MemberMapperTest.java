@@ -16,21 +16,29 @@ public class MemberMapperTest {
 	private MemberMapper memberMapper;
 	
 	// 회원가입 쿼리 테스트
+//	@Test
+//	public void memberJoin() throws Exception {
+//		MemberVO member = new MemberVO();
+//		member.setId("test");
+//		member.setPw("test");
+//		member.setName("test");
+//		member.setEmail("test");
+//		member.setPost("test");
+//		member.setAddr1("test");
+//		member.setAddr2("test");
+//		member.setTel("test");
+//		
+//		memberMapper.memberJoin(member);	// 회원가입 메소드 실행
+//	}
+	
+	// 아이디 중복검사 쿼리 테스트
 	@Test
-	public void memberJoin() throws Exception {
-		MemberVO member = new MemberVO();
-		member.setId("test");
-		member.setPw("test");
-		member.setName("test");
-		member.setEmail("test");
-		member.setPost("test");
-		member.setAddr1("test");
-		member.setAddr2("test");
-		member.setTel("test");
+	public void idCheckTest() throws Exception {
+		String id = "111";	// 존재하는 아이디
+		String id2 = "0";	// 존재하지 않는 아이디
 		
-		memberMapper.memberJoin(member);	// 회원가입 메소드 실행
+		memberMapper.idCheck(id);
+		memberMapper.idCheck(id2);
 	}
-	
-	
 
 }

@@ -10,3 +10,12 @@
 	color: red;
 	display: none;
 }
+
+/* 인증번호 일치 */
+.correct{
+	color: green;
+}
+/* 인증번호 불일치 */
+.incorrect{
+	color: red;
+}

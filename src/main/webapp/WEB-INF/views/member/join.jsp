@@ -5,11 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../resources/css/member/join.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../resources/css/member/join.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<!-- 생일추가하기(캘린더) -->
 </head>
 <body>
 	<form id="join_form" method="post">
@@ -45,13 +49,14 @@
 			<div class="email_input_box"><input class="email_input" name="email"></div>		
 			<!-- 이메일 인증번호 -->
 			<div class="email_check_wrap">
-				<div class="email_check_input_box">
-					<input class="email_check_input">
+				<div class="email_check_input_box" id="email_check_input_box_false">
+					<input class="email_check_input" disabled="disabled">
 				</div>
 				<div class="email_check_button">
 					<span>인증번호 전송</span>
 				</div>
 				<div class="clearfix"></div>
+				<span id="email_check_input_box_warn"></span>
 			</div>
 		</div>
 		
@@ -95,8 +100,10 @@
 	
 	<!-- 스크립트 -->
 	<script>
+		var code = "";		// 이메일 전송 인증번호 저장을 위한 코드
+	
 		$(document).ready(function(){
-			// 회원가입 버튼 작동
+			/* 회원가입 버튼 작동 */
 			$(".join_button").click(function(){
 				alert("회원가입");
 				$("#join_form").attr("action","/member/join");
@@ -104,7 +111,7 @@
 			});	
 		});
 		
-		// 아이디 중복검사
+		/* 아이디 중복검사 */
 		$('.id_input').on("propertychange change keyup paste input", function(){
 		//	console.log("keyup 테스트");
 			
@@ -128,6 +135,38 @@
 				}	// success 종료
 			});	// ajax 종료
 		});		// function 종료
+		
+		/* 인증번호 이메일 전송 */
+		$(".email_check_button").click(function(){
+			var email = $(".email_input").val();		// 입력한 이메일
+			var checkBox = $(".email_check_input");		// 인증번호 입력란
+			var boxWrap = $(".email_check_input_box");	// 인증번호 입력란 박스
+			
+			$.ajax({
+				type : "GET",
+				url : "emailCheck?email=" + email,
+				success : function(data){
+				//	console.log("data: " + data);
+					checkBox.attr("disabled", false);
+					boxWrap.attr("id", "email_check_input_box_true");
+					code = data;
+				}
+			});	// ajax 종료
+		});
+		
+		/* 인증번호 비교 */
+		$(".email_check_input").blur(function(){
+			var inputCode = $(".email_check_input").val();		// 입력코드
+			var checkResult = $("#email_check_input_box_warn");	// 비교결과
+			
+			if(inputCode == code){	// 인증번호 일치
+				checkResult.html("인증번호가 일치합니다.");
+				checkResult.attr("class","correct");
+			}else{	// 인증번호 불일치
+				checkResult.html("인증번호를 다시 확인해주세요.");
+				checkResult.attr("class","incorrect");
+			}
+		});
 	</script>
 
 </body>

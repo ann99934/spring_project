@@ -66,22 +66,22 @@
 			<!-- 우편번호 -->
 			<div class="post_input_wrap">
 				<div class="post_input_box">
-					<input class="post_input" name="post">
+					<input class="post_input" name="post" disabled="disabled">
 				</div>
 				<!-- 주소찾기 버튼 -->
-				<div class="addr_button"><span>주소찾기</span></div>
+				<div class="addr_button" onclick="execution_daum_address()"><span>주소찾기</span></div>
 				<div class="clearfix"></div>
 			</div>
 			<!-- 주소 -->
 			<div class="addr_input_1_wrap">
 				<div class="addr_input_1_box">
-					<input class="addr_input_1" name="addr1">
+					<input class="addr_input_1" name="addr1" disabled="disabled">
 				</div>
 			</div>
 			<!-- 상세주소 -->
 			<div class="addr_input_2_wrap">
 				<div class="addr_input_2_box">
-					<input class="addr_input_2" name="addr2">
+					<input class="addr_input_2" name="addr2" disabled="disabled">
 				</div>
 			</div>
 		</div>
@@ -98,6 +98,7 @@
 		</div>
 	</form>
 	
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<!-- 스크립트 -->
 	<script>
 		var code = "";		// 이메일 전송 인증번호 저장을 위한 코드
@@ -167,6 +168,16 @@
 				checkResult.attr("class","incorrect");
 			}
 		});
+		
+		/* 다음 주소 연동 */
+		function execution_daum_address(){
+			new daum.Postcode({
+		        oncomplete: function(data) {
+		            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+		            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+		        }
+		    }).open();
+		}
 	</script>
 
 </body>

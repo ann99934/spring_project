@@ -54,6 +54,7 @@
 			<div class="email_name">이메일</div>
 			<div class="email_input_box"><input class="email_input" name="email"></div>		
 			<span class="final_email_ck">이메일을 입력해주세요.</span>
+			<span class="email_input_box_warn"></span>
 			<!-- 이메일 인증번호 -->
 			<div class="email_check_wrap">
 				<div class="email_check_input_box" id="email_check_input_box_false">
@@ -223,6 +224,17 @@
 			var email = $(".email_input").val();		// 입력한 이메일
 			var checkBox = $(".email_check_input");		// 인증번호 입력란
 			var boxWrap = $(".email_check_input_box");	// 인증번호 입력란 박스
+			var warnMsg = $(".email_input_box_warn");	// 이메일 입력 경고문
+			
+			/* 이메일 형식 유효성 검사 */
+			if(emailFormCheck(email)){
+				warnMsg.html("이메일이 전송 되었습니다. 이메일을 확인해주세요.");
+				warnMsg.css("display", "inline-block");
+			}else{
+				warnMsg.html("올바르지 못한 이메일 형식입니다.");
+				warnMsg.css("display", "inline-block");
+				return false;
+			}
 			
 			$.ajax({
 				type : "GET",
@@ -318,6 +330,12 @@
 				pwckCheck = false;
 			}
 		});
+		
+		/* 입력 이메일 형식 유효성 검사 */
+		function emailFormCheck(email){
+			var form =  /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			return form.test(email);
+		}
 	</script>
 
 </body>

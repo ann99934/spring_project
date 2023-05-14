@@ -9,4 +9,4 @@ create table member(
     addr2 varchar2(100),
     tel varchar2(30),
     adminck number(1) default 0 not null
-);
+); +) user 기능 merge 후 birth 추가

@@ -25,7 +25,7 @@
 				<img class="logo" src="resources/img/logo.png">
 				</a>
 				<ul class="top_left">
-					<li><a href="/shop/productMain">제품보기</a></li>
+					<li><a href="../shop/productMain">제품보기</a></li>
 					<li><a href="">베스트셀러</a></li>
 					
 				</ul>

@@ -48,7 +48,7 @@
 					<c:if test="${member.adminCk == 1 }"> <!-- 관리자 계정 -->
 						<li><a href="admin/main">관리자 페이지</a></li>
 					</c:if>
-					<li>${member.memberName} 님</li>
+					<li>${member.name} 님</li>
 					<li>마이 페이지</li>
 					<li>장바구니</li>
 					<li><a href="/member/logout.do">로그아웃</a></li>

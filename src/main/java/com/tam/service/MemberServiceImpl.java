@@ -8,16 +8,9 @@ import com.tam.model.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
+
 	@Autowired
 	MemberMapper membermapper;
-	
-	/* 회원가입 */
-	@Override
-	public void MemberJoin(MemberVO member) throws Exception {	
-		membermapper.memberJoin(member);
-		
-	}
-
 
 	/* 로그인 */
 	@Override
@@ -26,7 +19,18 @@ public class MemberServiceImpl implements MemberService {
 		return membermapper.memberLogin(member);
 	}
 
-
+	// 회원가입
+	@Override
+	public void memberJoin(MemberVO member) throws Exception {
+		// TODO Auto-generated method stub
+		memberMapper.memberJoin(member);	
+	}
 	
+	// 아이디 중복검사
+	@Override
+	public int idCheck(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return memberMapper.idCheck(id);
+	}
 }
 

@@ -37,5 +37,12 @@ public class HomeController {
 		return "home";
 	}
 
-	
+
+	// 메인 페이지 이동
+	@GetMapping("/main")
+	public void mainPageGET() {
+		logger.info("main 페이지 진입");	
+	}
+
+
 }

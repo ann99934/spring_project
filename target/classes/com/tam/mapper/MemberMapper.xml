@@ -9,10 +9,9 @@
       
          select id, name, adminCk
          from member 
-         where id = #{id} and pw = #{pw}   
+         where id = #{id} and pw = #{pw}     
       </select>
-  </mapper>
-
+	
 	<!-- 회원가입 -->
 	<insert id="memberJoin">
 		insert into member 

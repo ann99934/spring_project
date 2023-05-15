@@ -10,13 +10,13 @@ import com.tam.model.MemberVO;
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
-	MemberMapper membermapper;
+	MemberMapper memberMapper;
 
 	/* 로그인 */
 	@Override
 	public MemberVO memberLogin(MemberVO member) throws Exception {
 		
-		return membermapper.memberLogin(member);
+		return memberMapper.memberLogin(member);
 	}
 
 	// 회원가입

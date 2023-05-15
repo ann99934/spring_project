@@ -35,7 +35,7 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
-	private MemberService memberservice;
+	private MemberService memberService;
   
   @Autowired
 	private JavaMailSender mailSender;
@@ -53,7 +53,7 @@ public class MemberController {
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception{
 		
 		HttpSession session = request.getSession();
-		MemberVO lvo = memberservice.memberLogin(member);
+		MemberVO lvo = memberService.memberLogin(member);
 		 if(lvo == null) {                                // 일치하지 않는 아이디, 비밀번호 입력 경우
 	            
 	            int result = 0;

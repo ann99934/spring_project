@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.tam.mapper.MemberMapper">
+	<!-- 회원가입 -->
+	<insert id="memberJoin">
+  		insert into book_member 
+  		values(#{memberId}, #{memberPw}, #{memberName}, #{memberMail}, #{memberBirth}, #{memberPost},#{memberAddr1}, #{memberAddr2}, #{memberTel}, 0 )
+
+  	</insert>
+
+	<!-- 로그인 -->
+      <select id="memberLogin" resultType="com.tam.model.MemberVO">
+      
+         select memberId, memberName, adminck
+         from book_member 
+         where memberId = #{memberId} and memberPw = #{memberPw}
+      
+      </select>
+	
+  </mapper>

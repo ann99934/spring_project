@@ -1,0 +1,252 @@
+@charset "UTF-8";
+*{
+	margin:0;
+	padding:0;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+ul{
+	list-style: none;
+}
+/*화면 전체 랩*/
+.wrapper{
+	width: 100%;
+	height: 700px;
+}
+
+/*content wrap*/
+.wrap{
+	width: 100%;
+	margin: auto;
+
+}
+
+/* gnb영역 */
+.top_gnb_area{
+	width: 100%;
+	height: 50px;
+	background-color: white;
+	position: relative;
+	list-style: none;
+	background-color: pink;
+}
+
+
+
+.top_gnb_area{
+	position: relative;
+}
+.top_gnb_area .top_left{
+	position: absolute;
+	top: 0px;
+	left: 200px;
+}
+.top_gnb_area .top_left li{
+	list-style: none;
+	float: left;
+	padding: 10px 10px 0 5px;
+	cursor: pointer;
+}
+.top_gnb_area .top_left li a{color:white; font-size:20px; font-weight: bold;}
+.a:link{color:white}
+.a:visited{color: white;}
+
+/*로고*/
+.logo{
+	width: 150px;
+	height: 35px;
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+
+/*로그인*/
+.login_wrap{
+	width: 380px;
+	height: 400px;
+	border: 1px solid silver;
+	margin-top: 100px;
+	margin-left: 500px;
+	padding-top:70px;
+	padding-left: 140px;
+}
+.logo_wrap{
+	text-align: cetner;
+
+}
+.logo_wrap span{
+	font-size: 23px;
+	font-weight: bold;
+	
+}
+
+
+.id_wrap{
+	margin-top: 20px;
+	top: 20px;
+	font-size: 13px;
+}
+.id_input_box{
+	border: 1px solid black;
+	height:15px;
+	padding: 10px 14px;	
+	display: block;
+	width : 210px;
+}
+.id_input{
+	width:100%;
+	height:20px;
+	border:none;
+	font-size:15px;
+}
+
+
+.pw_wrap{
+	margin-top: 10px;
+	top: 50px;
+	font-size: 13px;
+}
+
+.pw_input_box{
+	border: 1px solid black;
+	height:15px;
+	padding: 10px 14px;	
+	display: block;
+	width : 210px;
+}
+.pw_iput{
+	width:100%;
+	height:20px;
+	border:none;
+	font-size:15px;
+}
+
+/*버튼*/
+.button{
+	margin-top:30px;
+}
+.login_button{
+	width: 240px;
+    height: 30px;
+    background-color: pink;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 1px solid silver;
+}
+
+.login_warn{
+	margin-top: 30px;
+	color: red;
+	font-size: 10px;
+}
+.join{
+	width: 240px;
+    height: 30px;
+    background-color: pink;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 1px solid silver;
+    margin-top: 10px;
+}
+
+.n_login{
+	width: 118px;
+    height: 30px;
+    background-color: green;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 1px solid gray;
+    margin-top: 10px;
+}
+.g_login{
+	width: 118px;
+    height: 30px;
+    background-color: black;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 1px solid gray;
+    margin-top: 10px;
+}
+
+/*footer*/
+
+.footer1{
+	position: absolute;
+	bottom: 0;
+	border: 1px solid gray;
+}
+/*footer navi 영역*/
+.footer_nav{
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid gray;
+}
+.footer_nav_container{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
+.footer_nav_container>ul{
+	font-weight: bold;
+	float: left;
+	list-style: none;
+	position: relative;
+	padding-top: 10px;
+	line-height: 27px;
+	font-family: dotum;
+	margin-left:20px;
+}
+.footer_nav_container>ul>li{
+	display: inline;
+	width: 45px;
+	height: 19px;
+	padding: 10px 9px 0 10px;
+}
+
+.footer_nav_container>ul>span{
+	margin: 0 4px;
+}
+/*footer영역*/
+.footer{
+	width: 100%;
+	height: 130px;
+	background-color: white;
+	padding-bottom: 50px;
+}
+
+.footer_container{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+.footer_left>img{
+	width: 150%;
+	height: 50px;
+	margin-left: -20px;
+	margin-top: 10px;
+}
+.footer_left{
+	float: left;
+	width: 170px;
+	margin-left: 60px;
+	margin-top: 30px;
+}
+.footer_right{
+	float: left;
+	width: 680px;
+	margin-left:120px;
+	margin-top: 30px;
+}
+
+/*float 속성 해제*/
+.clearfix{
+	clear: both;
+}

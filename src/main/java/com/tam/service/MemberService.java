@@ -3,6 +3,9 @@ package com.tam.service;
 import com.tam.model.MemberVO;
 
 public interface MemberService {
+  
+	/*로그인*/
+	public MemberVO memberLogin(MemberVO member) throws Exception;
 
 	// 회원가입
 	public void memberJoin(MemberVO member) throws Exception;
@@ -10,3 +13,4 @@ public interface MemberService {
 	// 아이디 중복검사
 	public int idCheck(String id) throws Exception;
 }
+

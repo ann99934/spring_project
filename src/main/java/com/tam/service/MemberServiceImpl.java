@@ -8,9 +8,16 @@ import com.tam.model.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
+
 	@Autowired
-	MemberMapper memberMapper;
+	MemberMapper membermapper;
+
+	/* 로그인 */
+	@Override
+	public MemberVO memberLogin(MemberVO member) throws Exception {
+		
+		return membermapper.memberLogin(member);
+	}
 
 	// 회원가입
 	@Override
@@ -26,3 +33,4 @@ public class MemberServiceImpl implements MemberService {
 		return memberMapper.idCheck(id);
 	}
 }
+

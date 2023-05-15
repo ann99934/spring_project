@@ -18,8 +18,7 @@
 	
 	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="hikariConfig" />
-	</bean>
-	
+	</bean>	
 
 	<!-- naver메일 설정 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

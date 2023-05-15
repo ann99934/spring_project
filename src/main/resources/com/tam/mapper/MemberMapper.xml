@@ -4,14 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.tam.mapper.MemberMapper">
 
-	<!-- 로그인 -->
-      <select id="memberLogin" resultType="com.tam.model.MemberVO">
-      
-         select id, name, adminCk
-         from member 
-         where id = #{id} and pw = #{pw}     
-      </select>
-	
 	<!-- 회원가입 -->
 	<insert id="memberJoin">
 		insert into member 
@@ -22,6 +14,19 @@
 	<select id="idCheck" resultType="int">
 		select count(*) from member
 		where id=#{id}
-	</select>
+	</select>	
+	
+	
+	<!-- 로그인 -->
+      <select id="memberLogin" resultType="com.tam.model.MemberVO">
+      
+         select id, pw, name, adminCk
+         from member 
+         where id = #{id}    
+      </select>
+      
+      
+      
+      
 </mapper>
 

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>브랜드명</title>
-<link rel="stylesheet" href="/resources/css/member/login.css">
+<link rel="stylesheet" href="../resources/css/member/login.css">
 <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -42,13 +42,13 @@
 			<div class="id_wrap">
 					<span>아이디</span>
 					<div class="id_input_box">
-					<input class="id_input"  name="memberId">
+					<input class="id_input"  name="id">
 				</div>
 			</div>
 			<div class="pw_wrap">
 				<span>비밀번호</span>
 				<div class="pw_input_box">
-					<input class="pw_iput"  name="memberPw">
+					<input class="pw_input"  name="pw">
 				</div>
 			</div>
 			<c:if test ="${result == 0}">

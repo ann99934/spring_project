@@ -37,7 +37,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
   
-  @Autowired
+	@Autowired
 	private JavaMailSender mailSender;
 	
 	@Autowired
@@ -48,24 +48,38 @@ public class MemberController {
 	public void loginGET() {
 		logger.info("로그인 페이지 진입");
 	}
+	
 	/* 로그인 */
-	@RequestMapping(value="login", method=RequestMethod.POST)
+	@PostMapping("/login")
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr) throws Exception{
 		
 		HttpSession session = request.getSession();
+		String rawPw = "";
+		String encodePw ="";
+		
 		MemberVO lvo = memberService.memberLogin(member);
-		 if(lvo == null) {                                // 일치하지 않는 아이디, 비밀번호 입력 경우
-	            
-	            int result = 0;
-	            rttr.addFlashAttribute("result", result);
-	            return "redirect:/member/login";
-	            
-	        }
-	        
-	        session.setAttribute("member", lvo);             // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
-	        
-	        return "redirect:/main";
+		logger.info(""+lvo);
+		
+		 if(lvo != null) {       // 일치하지 않는 아이디, 비밀번호 입력 경우
+	         rawPw = member.getPw(); //사용자가 제출한 비밀번호
+			encodePw = lvo.getPw(); //db에 저장된 암호화(인코딩)된 비밀번호
+				
+				if(true == pwEncoder.matches(rawPw, encodePw)) {
+					lvo.setPw("");
+					session.setAttribute("member", lvo);
+					return "redirect:/main";
+				}else {
+					rttr.addFlashAttribute("result", 0);
+					return "redirect:/member/login";
+				}
+				
+			}else { //일치하는 아이디가 없을때 로그인 실패 시
+				rttr.addFlashAttribute("result", 0);
+				return "redirect:/member/login"; //로그인 페이지로 이동
+			}
 		}
+	
+	
 	
 	 /* 메인페이지 로그아웃 */
     @RequestMapping(value="logout.do", method=RequestMethod.GET)

@@ -5,7 +5,7 @@ import com.tam.model.MemberVO;
 public interface MemberMapper {
 	
 	/* 로그인 */
-		public MemberVO memberLogin(MemberVO member);
+	public MemberVO memberLogin(MemberVO member);
 
 	// 회원가입
 	public void memberJoin(MemberVO member);

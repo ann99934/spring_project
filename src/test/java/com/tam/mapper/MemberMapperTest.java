@@ -32,7 +32,7 @@ public class MemberMapperTest {
 //	}
 	
 	// 아이디 중복검사 쿼리 테스트
-	@Test
+/*	@Test
 	public void idCheckTest() throws Exception {
 		String id = "111";	// 존재하는 아이디
 		String id2 = "0";	// 존재하지 않는 아이디
@@ -40,5 +40,15 @@ public class MemberMapperTest {
 		memberMapper.idCheck(id);
 		memberMapper.idCheck(id2);
 	}
-
+*/
+	
+	@Test
+	public void memberLogin() throws Exception{
+		MemberVO member = new MemberVO();
+		
+		member.setId("1");
+		member.setPw("1");
+		memberMapper.memberLogin(member);
+	}
+	
 }

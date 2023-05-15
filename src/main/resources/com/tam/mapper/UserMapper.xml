@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tam.mapper.UserMapper">
+	<select id="getList" resultType="com.tam.model.MemberVO">
+
+		select * from member
+
+	</select>
+
+	<select id="getListPaging" resultType="com.tam.model.MemberVO">
+	<![CDATA[ 
+	
+	select rn, id, name, tel, addr1, addr2, email, adminCk from(
+	
+	select rownum as rn, id, name, tel, addr1, addr2, email, adminCk
+	
+	from member where rownum<= #{pageNum} * #{amount}
+	
+    )where rn > (#{pageNum} -1) * #{amount}
+]]>
+
+
+	</select>
+	<!-- 게시물 총 갯수 -->
+	<select id="getTotal" resultType="int">
+		select count(*)from member
+	</select>
+
+</mapper>

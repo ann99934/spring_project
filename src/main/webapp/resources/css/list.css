@@ -1,0 +1,79 @@
+@charset "EUC-KR";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-collapse: collapse;
+	width: 1500px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+td, th {
+	border: 1px solid black;
+	height: 50px;
+}
+
+th {
+	font-size: 17px;
+}
+
+thead {
+	font-weight: 700;
+}
+
+.table_wrap {
+	margin: 50px 0 0 50px;
+}
+
+.id_width {
+	width: 12%;
+}
+
+.name_width {
+	width: 10%;
+}
+
+.email_width {
+	width: 15%;
+}
+
+.tel_width {
+	width: 15%;
+}
+
+.adminCk_width {
+	width: 15%;
+}
+
+.pageInfo {
+	list-style: none;
+	display: inline-block;
+	margin: 50px 0 0 100px;
+}
+
+.pageInfo li {
+	float: left;
+	font-size: 20px;
+	margin-left: 18px;
+	padding: 7px;
+	font-weight: 500;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}

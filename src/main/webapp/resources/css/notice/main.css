@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+a {
+	text-decoration: none;
+}
+
+table {
+	border-collapse: collapse;
+	width: 1000px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+td, th {
+	border: 1px solid red;
+	height: 50px;
+}
+
+th {
+	font-size: 17px;
+}
+
+thead {
+	font-weight: 700;
+}
+
+.table_wrap {
+	margin: 50px 0 0 50px;
+}
+
+.bno_width {
+	width: 12%;
+}
+
+.writer_width {
+	width: 20%;
+}
+
+.regdate_width {
+	width: 15%;
+}
+
+.updatedate_width {
+	width: 15%;
+}
+
+.top_btn {
+	font-size: 20px;
+	padding: 6px 12px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	font-weight: 600;
+}
+
+.pageInfo {
+	list-style: none;
+	display: inline-block;
+	margin: 50px 0 0 100px;
+}
+
+.pageInfo li {
+	float: left;
+	font-size: 20px;
+	margin-left: 18px;
+	padding: 7px;
+	font-weight: 500;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.active {
+	background-color: red;
+}
+
+.search_area {
+	display: inline-block;
+	margin-top: 30px;
+	margin-left: 260px;
+}
+
+.search_area input {
+	height: 30px;
+	widows: 250px;
+}
+
+.search_area button {
+	width: 100px;
+	height: 36px;
+}
+
+.search_area select {
+	height: 35px;
+}

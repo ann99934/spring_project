@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.notice.mapper.NoticeMapper">
+ 
+	
+	<!-- 검색 조건문 -->
+	<sql id="criteria">
+		<trim prefix="AND (" suffix=")" prefixOverrides="OR">
+			<foreach collection="typeArray" item="type">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							noticeTitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							noticeContent like '%'||#{keyword}||'%'
+						</when>						
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+ 
+
+	<select id="selectAll" resultType="com.notice.model.NoticeVO">
+	
+	
+	
+	
+	<![CDATA[
+         select rn, noticeNum, noticeTitle, noticeContent, postDate, updateDate from (
+             select rownum as rn, noticeNum, noticeTitle, noticeContent, postDate, updateDate 
+             from notice where rownum <= #{pageNum} * #{amount}
+             ]]>
+           
+		<if test="keyword != null">
+			<include refid="criteria"></include>
+		</if>
+              
+             <![CDATA[
+             )
+              where rn > (#{pageNum} -1) * #{amount}
+          ]]>
+	</select>
+	
+
+
+	<select id="selectCount" resultType="int">
+		select count(*) from notice
+		
+		<if test="keyword != null">
+			where noticeNum>0 <include refid="criteria"></include>
+		</if>  
+	</select>
+	
+	<select id="selectOne" resultType="com.notice.model.NoticeVO">
+		select * from notice where noticeNum = #{noticeNum}
+	</select>
+
+	<insert id="postNotice">
+		insert into notice(noticeNum, noticeTitle, noticeContent, postDate) values(notice_seq.nextval, #{noticeTitle}, #{noticeContent}, sysdate)
+	</insert>
+
+	<update id="updateNotice">
+		update notice set noticeTitle = #{noticeTitle},
+		noticeContent=#{noticeContent}, updateDate = sysdate where noticeNum =
+		#{noticeNum}
+	</update>
+
+	<delete id="deleteNotice">
+		delete from notice where noticeNum = #{noticeNum}
+	</delete>
+
+</mapper>

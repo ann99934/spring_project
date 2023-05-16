@@ -15,6 +15,7 @@ public class Criteria { // 기준
 
 	public String getType() {
 		return type;
+		
 	}
 
 	public void setType(String type) {
